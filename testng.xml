@@ -1,0 +1,23 @@
+<suite name="A101 Practicum Final Case" >
+    <listeners>
+        <listener class-name="TestComponents.Listeners"/>
+    </listeners>
+    <tests>
+        <test name="Buying product with user login at hepsiburada.com">
+            <classes>
+                <class name="tests.BuyingProductWithUserLogin"/>
+            </classes>
+        </test>
+        <test name="Buying product without user login at hepsiburada.com">
+            <classes>
+                <class name="tests.BuyingProductWithoutUserLogin"/>
+            </classes>
+        </test>
+    </tests>
+</suite>
+
+
+
+
+
+
