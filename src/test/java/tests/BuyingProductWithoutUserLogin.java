@@ -14,7 +14,7 @@ import static org.testng.Assert.assertFalse;
 public class BuyingProductWithoutUserLogin extends BaseTest {
 
     @Test
-    public void checkProductName() throws InterruptedException {
+    public void checkProductNameWithoutUserLogin() throws InterruptedException {
         ProductsPage productsPage = mainPage.acceptCookies();
         mainPage.searchProduct(DriverSetup.properties.getProperty("productName"));
         ProductDetailPage productDetailPage = productsPage.getProduct(0);
@@ -26,7 +26,7 @@ public class BuyingProductWithoutUserLogin extends BaseTest {
     }
 
     @Test
-    void checkSellersNames() throws InterruptedException {
+    void checkSellersNamesWithoutUserLogin() throws InterruptedException {
         ProductsPage productsPage = mainPage.acceptCookies();
         mainPage.searchProduct(DriverSetup.properties.getProperty("productName"));
         ProductDetailPage productDetailPage = productsPage.getProduct(0);

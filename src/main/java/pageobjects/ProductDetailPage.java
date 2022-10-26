@@ -39,7 +39,7 @@ public class ProductDetailPage extends AbstractComponent {
         String childWindow = it.next();
         driver.switchTo().window(childWindow);
         addToCartFromFirstSeller.click();
-        Thread.sleep(1500);
+        Thread.sleep(3000);
         if (closeWindowSymbol.isDisplayed()){
             closeWindowSymbol.click();
             js.executeScript("arguments[0].scrollIntoView();", otherSellers);
@@ -50,7 +50,7 @@ public class ProductDetailPage extends AbstractComponent {
     public void addSecondProductToCart() throws InterruptedException {
         if (addToCartFromSecondSeller.isDisplayed()) {
             addToCartFromSecondSeller.click();
-            Thread.sleep(1500);
+            Thread.sleep(3000);
             if (closeWindowSymbol.isDisplayed()) {
                 closeWindowSymbol.click();
                 js.executeScript("arguments[0].scrollIntoView();", cart);

@@ -19,7 +19,7 @@ public class BuyingProductWithUserLogin extends BaseTest {
     }
 
     @Test(dependsOnMethods = "checkUserLogin")
-    void checkProductName() throws InterruptedException {
+    void checkProductNameWithUserLogin() throws InterruptedException {
         mainPage.login(DriverSetup.properties.getProperty("email"), DriverSetup.properties.getProperty("password"));
         ProductsPage productsPage = mainPage.acceptCookies();
         mainPage.searchProduct(DriverSetup.properties.getProperty("productName"));
@@ -32,7 +32,7 @@ public class BuyingProductWithUserLogin extends BaseTest {
     }
 
     @Test(dependsOnMethods = "checkUserLogin")
-    void checkSellersNames() throws InterruptedException {
+    void checkSellersNamesWithUserLogin() throws InterruptedException {
         mainPage.login(DriverSetup.properties.getProperty("email"), DriverSetup.properties.getProperty("password"));
         ProductsPage productsPage = mainPage.acceptCookies();
         mainPage.searchProduct(DriverSetup.properties.getProperty("productName"));
