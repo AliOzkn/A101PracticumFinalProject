@@ -27,7 +27,6 @@ public class BaseTest {
         mainPage = new MainPage(driver);
         return mainPage;
     }
-
     @AfterMethod
     public void driverClose() {
         driver.quit();

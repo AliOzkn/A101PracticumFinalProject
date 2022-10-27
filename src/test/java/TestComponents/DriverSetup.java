@@ -17,21 +17,22 @@ public class DriverSetup {
 
     public static WebDriver initializeDriver(String browser) {
 
-        ChromeOptions chromeOptions = new ChromeOptions();
-        FirefoxOptions firefoxOptions = new FirefoxOptions();
-        chromeOptions.addArguments("--disable-popup-blocking");
-        chromeOptions.addArguments("--disable-notifications");
-        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-        chromeOptions.addArguments("--acceptInsecureCerts");
-        firefoxOptions.addPreference("dom. webnotifications.enabled", false);
         properties = ConfigReader.getProperties();
         try {
             switch (browser) {
                 case "Chrome":
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--disable-popup-blocking");
+                    chromeOptions.addArguments("--disable-notifications");
+                    chromeOptions.addArguments("--incognito");
+                    chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+                    chromeOptions.addArguments("--acceptInsecureCerts");
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(chromeOptions);
                     break;
                 case "Firefox":
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.addPreference("dom. webnotifications.enabled", false);
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver(firefoxOptions);
                     break;

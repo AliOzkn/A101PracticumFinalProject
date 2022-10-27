@@ -23,8 +23,6 @@ public class ProductDetailPage extends AbstractComponent {
     WebElement addToCartFromFirstSeller;
     @FindBy(css = ".checkoutui-Modal-2iZXl")
     WebElement closeWindowSymbol;
-    @FindBy(xpath = "//div[@class='other-sellers']")
-    WebElement otherSellers;
     @FindBy(xpath = "(//div[@class='marketplace-list']//tbody//tr//td[3]//div[1])[1]")
     WebElement addToCartFromSecondSeller;
     @FindBy(id = "shoppingCart")
@@ -40,23 +38,22 @@ public class ProductDetailPage extends AbstractComponent {
         driver.switchTo().window(childWindow);
         addToCartFromFirstSeller.click();
         Thread.sleep(3000);
-        if (closeWindowSymbol.isDisplayed()){
+        if (closeWindowSymbol.isDisplayed()) {
             closeWindowSymbol.click();
-            js.executeScript("arguments[0].scrollIntoView();", otherSellers);
-        } else{
-            js.executeScript("arguments[0].scrollIntoView();", otherSellers);
+            js.executeScript("window.scrollBy(0,600)");
+        } else {
+            js.executeScript("window.scrollBy(0,600)");
         }
     }
+
     public void addSecondProductToCart() throws InterruptedException {
-        if (addToCartFromSecondSeller.isDisplayed()) {
-            addToCartFromSecondSeller.click();
-            Thread.sleep(3000);
-            if (closeWindowSymbol.isDisplayed()) {
-                closeWindowSymbol.click();
-                js.executeScript("arguments[0].scrollIntoView();", cart);
-            } else {
-                js.executeScript("arguments[0].scrollIntoView();", cart);
-            }
+        addToCartFromSecondSeller.click();
+        Thread.sleep(3000);
+        if (closeWindowSymbol.isDisplayed()) {
+            closeWindowSymbol.click();
+            js.executeScript("arguments[0].scrollIntoView();", cart);
+        } else {
+            js.executeScript("arguments[0].scrollIntoView();", cart);
         }
     }
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends AbstractComponent {
     WebDriver driver;
-    public final String account = "Hesabım";
+    public final String supportRequestText = "Destek Taleplerim";
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -16,7 +16,9 @@ public class MainPage extends AbstractComponent {
 
     @FindBy(css = "#myAccount")
     WebElement myAccount;
-    @FindBy(xpath = "//ul//li//a[@title='Giriş yap']")
+    @FindBy(xpath = "//ul//li//a[@title='Destek Taleplerim']")
+    WebElement supportRequestEl;
+    @FindBy(xpath = "//ul//li//a[@id='login']")
     WebElement firstLoginBtn;
     @FindBy(css = "input#txtUserName")
     WebElement mail;
@@ -26,8 +28,6 @@ public class MainPage extends AbstractComponent {
     WebElement pass;
     @FindBy(id = "btnEmailSelect")
     WebElement thirdLoginBtn;
-    @FindBy(css = "#myAccount span span:nth-of-type(1)")
-    WebElement accountText;
     @FindBy(css = "#onetrust-accept-btn-handler:nth-of-type(2)")
     WebElement acceptCookies;
     @FindBy(css = "[aria-controls='react-autowhatever-1']")
@@ -48,18 +48,19 @@ public class MainPage extends AbstractComponent {
         thirdLoginBtn.click();
 
     }
-
-    public String getAccountText() {
-        waitForWebElementToAppear(accountText);
-        return accountText.getText();
+    public void clickAccountTab() {
+        waitForWebElementToAppear(myAccount);
+        myAccount.click();
     }
-
+    public String getSupportRequestText() {
+        waitForWebElementToAppear(supportRequestEl);
+        return supportRequestEl.getText();
+    }
     public ProductsPage acceptCookies() {
         waitForWebElementToAppear(acceptCookies);
         acceptCookies.click();
         return new ProductsPage(driver);
     }
-
     public void searchProduct(String productName) {
         waitForWebElementToAppear(searchBox);
         searchBox.sendKeys(productName);
