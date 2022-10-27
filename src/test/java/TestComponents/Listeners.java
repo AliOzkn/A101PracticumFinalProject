@@ -31,6 +31,7 @@ public class Listeners extends BaseTest implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
+        System.out.println(result.getName() + " TEST FAILED.");
         extentTest.get().fail(result.getThrowable());
         try {
             driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
@@ -53,6 +54,11 @@ public class Listeners extends BaseTest implements ITestListener {
     }
 
     @Override
+    public void onTestSkipped(ITestResult result) {
+        System.out.println(result.getName() + " TEST SKIPPED.");
+    }
+
+    @Override
     public void onStart(ITestContext context) {
         System.out.println("------------------------------");
         System.out.println("Start date and time of the test : " + context.getStartDate());
@@ -61,7 +67,6 @@ public class Listeners extends BaseTest implements ITestListener {
     @Override
     public void onFinish(ITestContext context) {
         extent.flush();
-
         System.out.println("End date and time of the test : " + context.getEndDate());
         System.out.println("------------------------------");
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends AbstractComponent {
     WebDriver driver;
-    public final String account = "Hesabım";
+    public final String account = "HESABIM";
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -16,7 +16,7 @@ public class MainPage extends AbstractComponent {
 
     @FindBy(css = "#myAccount")
     WebElement myAccount;
-    @FindBy(xpath = "//a[@title='Hesabım']//span[1]")
+    @FindBy(css = "[data-test-id='account'] .sf-OldMyAccount-d0xCHLV38UCH5cD9mOXq")
     WebElement myAccountText;
     @FindBy(xpath = "//ul//li//a[@id='login']")
     WebElement firstLoginBtn;
@@ -49,7 +49,7 @@ public class MainPage extends AbstractComponent {
 
     }
     public String getAccountText() {
-        waitForWebElementToAppear(myAccountText);
+        waitForWebElementToAppear(myAccount);
         return myAccountText.getText().toUpperCase();
     }
     public ProductsPage acceptCookies() {

@@ -98,9 +98,16 @@ test işlemlerinin gerçekleştirildiği kısım olmak üzere 2 bölümden oluş
 
 
 - Bu bilgileri girdikten sonra, başka bir dosyaya müdahele etmeye gerek yoktur.<br>
-  Proje TestNG kütüphanesi ile oluşturulduğu için testng.xml dosyası üzerinden testler yürütülmektedir. [Dosyaya ulaşmak için tıklayınız.](https://github.com/AliOzkn/A101PracticumFinalProject/blob/2b0732e0c05ff49c4f7ddf600b027c7175e90b8a/testng.xml)<br>
+
+1. seçenek olarak proje TestNG kütüphanesi ile oluşturulduğu için testng.xml dosyası üzerinden testler yürütülebilir. [Dosyaya ulaşmak için tıklayınız.](https://github.com/AliOzkn/A101PracticumFinalProject/blob/2b0732e0c05ff49c4f7ddf600b027c7175e90b8a/testng.xml)<br>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/107454207/198016668-2fe0e663-6c17-4513-8fe0-7e1bf9beef3e.png"/>
+</p>
+
+2. seçenek olarak ise Maven ile testleri gerçekleştirmek için terminale `mvn test -PA101Practicum` kodunu yazmak yeterlidir.
+
+<p align="center">
+ <img src="https://user-images.githubusercontent.com/107454207/198351292-7c3b3d67-1093-40df-a5f5-488674d9c3a2.gif"/>
 </p>
 
 - Eğer bir test başarısız olur ve tekrar çalıştırmak istenirse testin bulunduğu sınıfa gidip, @Test notasyonunun yanına
