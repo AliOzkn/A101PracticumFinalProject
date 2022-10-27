@@ -15,8 +15,7 @@ public class BuyingProductWithUserLogin extends BaseTest {
     @Test
     void checkUserLogin() {
         mainPage.login(DriverSetup.properties.getProperty("email"), DriverSetup.properties.getProperty("password"));
-        mainPage.clickAccountTab();
-        assertEquals(mainPage.getSupportRequestText(), mainPage.supportRequestText);
+        assertEquals(mainPage.getAccountText(), mainPage.account.toUpperCase());
     }
 
     @Test(dependsOnMethods = "checkUserLogin")
