@@ -31,15 +31,10 @@ public class BuyingProductWithUserLogin extends BaseTest {
         assertEquals(cartPage.getProductName(), expectedText);
     }
 
-    @Test(dependsOnMethods = "checkUserLogin")
-    void checkSellersNamesWithUserLogin() throws InterruptedException {
+    @Test(dependsOnMethods = "checkProductNameWithUserLogin")
+    void checkSellersNamesWithUserLogin() {
         mainPage.login(DriverSetup.properties.getProperty("email"), DriverSetup.properties.getProperty("password"));
-        ProductsPage productsPage = mainPage.acceptCookies();
-        mainPage.searchProduct(DriverSetup.properties.getProperty("productName"));
-        ProductDetailPage productDetailPage = productsPage.getProduct(0);
-        productDetailPage.addFirstProductToCart();
-        productDetailPage.addSecondProductToCart();
-        CartPage cartPage = productDetailPage.goToCartPage();
+        CartPage cartPage =  mainPage.goToCart();
         assertFalse(cartPage.getFirstSellerName().equals(cartPage.getSecondSellerName()));
     }
 

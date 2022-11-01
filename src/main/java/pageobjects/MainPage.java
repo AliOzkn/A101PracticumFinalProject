@@ -34,6 +34,8 @@ public class MainPage extends AbstractComponent {
     WebElement searchBox;
     @FindBy(css = ".SearchBoxOld-cHxjyU99nxdIaAbGyX7F")
     WebElement searchBtn;
+    @FindBy(id = "shoppingCart")
+    WebElement cart;
 
 
     public void login(String email, String password) {
@@ -48,19 +50,26 @@ public class MainPage extends AbstractComponent {
         thirdLoginBtn.click();
 
     }
+
     public String getAccountText() {
         waitForWebElementToAppear(myAccount);
         return myAccountText.getText().toUpperCase();
     }
+
     public ProductsPage acceptCookies() {
         waitForWebElementToAppear(acceptCookies);
         acceptCookies.click();
         return new ProductsPage(driver);
     }
+
     public void searchProduct(String productName) {
         waitForWebElementToAppear(searchBox);
         searchBox.sendKeys(productName);
         searchBtn.click();
-
+    }
+    public CartPage goToCart(){
+        waitForWebElementToAppear(cart);
+        cart.click();
+        return new CartPage(driver);
     }
 }
